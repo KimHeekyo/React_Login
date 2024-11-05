@@ -1,4 +1,8 @@
 // backend/index.js
+// db 불러오기
+require('dotenv').config();
+
+
 
 const express = require('express');
 const cors = require('cors');
@@ -12,9 +16,9 @@ app.use(express.json());
 // PostgreSQL 연결 설정
 const pool = new Pool({
     user: 'postgres',
-    host: '192.168.0.197',
+    host: process.env.DB_HOST,
     database: 'React',
-    password: 'kimheekyo',
+    password: process.env.DB_PASSWORD,
     port: 5432,
 });
 
